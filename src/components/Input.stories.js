@@ -7,6 +7,6 @@ export default{
 
 export function inputDefault(){
     return(
-        <Input type="text" value="" onChange=""/>
+        <Input type="text" value="" onChange="" />
     )
 }

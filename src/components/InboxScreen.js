@@ -9,9 +9,16 @@ import Input from './Input';
 export function PureInboxScreen({ error, onAddTask }) {
   const [tasktoadd, setTaskToAdd] = useState('')
 
-  const handleClick = () => {    
-    onAddTask(tasktoadd)
-    setTaskToAdd('')
+  const handleClick = () => { 
+    if (tasktoadd === '')   
+    {
+      onAddTask("new task")      
+    }
+    else{
+      onAddTask(tasktoadd)
+      setTaskToAdd('')
+    }
+    
   }
   const handleChange = (event) =>{
     setTaskToAdd(event.target.value)
@@ -40,7 +47,7 @@ export function PureInboxScreen({ error, onAddTask }) {
       </nav>
       <TaskList />
       <div>  
-        <div className="input-box">
+        <div >
         <Input type="text" value={tasktoadd} onChange={handleChange}/>
         </div>
         <Button title="Add New" size="small" onClick={handleClick}/>
